@@ -14,22 +14,31 @@
 <body>
 
     <header class="terminal-header">
-        <p>Welcome to my personal website ~</p>
+        <p>Welcome to my personal website ~Kenuli Bulathsinghela</p>
+
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact Me</a>
+            </div>
+        </nav>
     </header>
 
     <section class="hero">
         <div class="hero-container">
             <div class="hero-text">
-                <h1 id="typed-text"></h1>
+                <h1 id="typed-text">Kenuli Bulathsinghela</h1>
 
                 <h3>
                     Business Analytics • Software Development • Project Management
                 </h3>
 
                 <p>
-                    Undergraduate Information Systems student at NIBM.
-                    Focused on business analytics, project management, and
-                    building intelligent software systems.
+                    Information Systems undergraduate at NIBM and Business Analyst Intern at Sri Lanka Telecom (SLT), 
+                    with interests in business analytics, project management, and intelligent software systems.
+
                 </p>
 
                 <div class="links">
@@ -50,7 +59,7 @@
             </div>
 
             <div class="hero-image">
-                <img src="static/portfolio.png" alt="Kenuli Bulathsinghela">
+                <img src="static/portfolio.jpeg" alt="Kenuli Bulathsinghela">
             </div>
         </div>
     </section>
@@ -85,20 +94,20 @@
 
     </section>
 
-    <section class="about">
+    <section class="about" id="about">
         <h2>About</h2>
 
         <p class="about">
-            I am an undergraduate Information Systems student at the National Institute of Business Management (NIBM)
-            with strong interests in data analytics, software development, and project management. I enjoy working
-            with data to identify patterns, build dashboards, and develop predictive models that support informed
-            decision making using tools such as Python, SQL, and Power BI. At the same time, I like building
-            practical software solutions that solve real-world problems, including web and application systems such
-            as booking platforms and management systems. Alongside technical development, I am also interested in
-            Agile project management, where I contribute to planning projects, organizing tasks, managing sprint
-            workflows, and coordinating teams using tools like Jira. By combining analytical thinking, development
-            skills, and structured project coordination, I aim to contribute to building efficient, data-driven
-            technology solutions.
+            I am an undergraduate Information Systems student at the National Institute of Business Management (NIBM) and currently 
+            working as a Business Analyst Intern at Sri Lanka Telecom (SLT), with strong interests in data analytics, software development,
+            and project management. I enjoy working with data to identify patterns, build dashboards, and develop predictive models that 
+            support informed decision-making using tools such as Python, SQL, and Power BI. At the same time, I enjoy building practical 
+            software solutions that solve real-world problems, including web and application systems such as booking platforms and 
+            management systems. Alongside technical development, I am interested in Agile project management, where I contribute to 
+            project planning, task organization, sprint workflows, and team coordination using tools like Jira. By combining analytical 
+            thinking, development skills, business analysis, and structured project coordination, I aim to contribute to building 
+            efficient, data-driven technology solutions.
+
         </p>
 
     </section>
@@ -128,86 +137,53 @@
 
             </div>
 
-            <div class="project data">
-
-                <h3 onclick="showProject('financial')">
-                    📈 Financial Performance Dashboard
-                </h3>
-
+            <div class="project data" onclick="showProject('financial')">
+                <h3>📈 Financial Performance Dashboard</h3>
             </div>
 
-            <div class="project data">
-
-                <h3 onclick="showProject('churn')">
-                    🤖 Customer Churn Prediction
-                </h3>
-
+            <div class="project data" onclick="showProject('churn')">
+                <h3>🤖 Customer Churn Prediction</h3>
             </div>
 
-            <div class="project data">
-
-                <h3 onclick="showProject('sales')">
-                    🛒 Sales Data Analysis
-                </h3>
-
+            <div class="project data" onclick="showProject('sales')">
+                <h3>🛒 Sales Data Analysis</h3>
             </div>
 
-            <div class="project dev">
-
-                <h3 onclick="showProject('clinic')">
-                    👁 Eye Clinic Appointment System
-                </h3>
-
+            <div class="project dev" onclick="showProject('clinic')">
+                <h3>👁 Eye Clinic Appointment System</h3>
             </div>
 
-            <div class="project dev">
-
-                <h3 onclick="showProject('rentmate')">
-                    🏠 RentMate Smart Rental System
-                </h3>
-
+            <div class="project dev" onclick="showProject('rentmate')">
+                <h3>🏠 RentMate Smart Rental System</h3>
             </div>
 
-            <div class="project dev">
-
-                <h3 onclick="showProject('library')">
-                    📚 Library Management System
-                </h3>
-
+            <div class="project dev" onclick="showProject('game')">
+                <h3>🎮 Game Recommender System</h3>
             </div>
 
-            <div class="project pm">
-
-                <h3 onclick="showProject('agile')">
-                    📝 Agile Project Management
-                </h3>
-
+            <div class="project pm" onclick="showProject('agile')">
+                <h3>📝 Agile Project Management</h3>
             </div>
 
-            <div class="project pm">
-
-                <h3 onclick="showProject('analytics')">
-                    📊 Data Analytics Project Coordination
-                </h3>
-
+            <div class="project pm" onclick="showProject('team')">
+                <h3>🤝 Cross-functional Team Leadership</h3>
             </div>
 
-            <div class="project pm">
-
-                <h3 onclick="showProject('team')">
-                    🤝 Cross-functional Team Leadership
-                </h3>
-
+            <div class="project pm" onclick="showProject('document')">
+                <h3>📚 Technical Documentation</h3>
             </div>
+
         </div>
 
         <!-- RIGHT SIDE PROJECT DETAILS -->
 
         <div class="project-details">
 
-            <img id="project-image"
-                 src="images/default.png"
-                 alt="Project Image">
+            <div id="project-images">
+                <img id="project-image"
+                     src="/static/images/default.png"
+                     alt="Project Image">
+            </div>
 
             <h2 id="project-title">
                 Select a Project
@@ -222,11 +198,18 @@
             </h3>
 
             <div id="project-tools"></div>
+
+            <a id="project-github"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer">
+                View the Repo →
+            </a>
         </div>
     </div>
 </section>
 
-    <section class="skills">
+    <section class="skills" id="skills">
         <h2>Skills</h2>
         <div class="skills-table">
             <div class="skill-column">
@@ -274,7 +257,7 @@
         </div>
     </section>
 
-    <section class="contact">
+    <section class="contact" id="contact">
 
         <h2>Contact Me</h2>
 
