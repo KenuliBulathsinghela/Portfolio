@@ -23,24 +23,24 @@
                 <h1 id="typed-text"></h1>
 
                 <h3>
-                    Data Analyst • Developer • Project Management
+                    Business Analytics • Software Development • Project Management
                 </h3>
 
                 <p>
                     Undergraduate Information Systems student at NIBM.
-                    Focused on data analytics, machine learning, and
+                    Focused on business analytics, project management, and
                     building intelligent software systems.
                 </p>
 
                 <div class="links">
-                    <a href="https://github.com/CodeBook666" target="_blank">GitHub</a>
+                    <a href="https://github.com/KenuliBulathsinghela" target="_blank">GitHub</a>
                     <a href="https://linkedin.com/in/kenulibulathsinghela" target="_blank">LinkedIn</a>
 
                     <div class="dropdown">
                         <button class="dropbtn">Download CV ▾</button>
                         <div class="dropdown-content">
                            <a href="{{ url_for('static', filename='cv/Kenuli-Bulathsinghela-Data-Analyst.pdf') }}" download>
-                            Data Analyst</a>
+                            Business Analyst</a>
 
                             <a href="{{ url_for('static', filename='cv/Kenuli-Bulathsinghela-Project-Manager.pdf') }}" download>
                             Project Manager </a>
@@ -103,100 +103,128 @@
 
     </section>
 
+    <section id="projects">
 
-    <section class="work">
+    <h2>Selected Work</h2>
 
-        <h2>Selected Work</h2>
+    <div class="project-layout">
 
-        <div class="project-filters">
-            <button onclick="filterProjects('all')">All</button>
-            <button onclick="filterProjects('data')">📊 Data Analyst</button>
-            <button onclick="filterProjects('pm')">🗂 Project Manager</button>
-            <button onclick="filterProjects('dev')">💻 Developer</button>
+        <!-- LEFT SIDE -->
+
+        <div class="project-menu">
+            <div class="project-filters">
+
+                <button onclick="filterProjects('data')">
+                    📊 Data Analyst
+                </button>
+
+                <button onclick="filterProjects('pm')">
+                    🗂 Project Manager
+                </button>
+
+                <button onclick="filterProjects('dev')">
+                    💻 Developer
+                </button>
+
+            </div>
+
+            <div class="project data">
+
+                <h3 onclick="showProject('financial')">
+                    📈 Financial Performance Dashboard
+                </h3>
+
+            </div>
+
+            <div class="project data">
+
+                <h3 onclick="showProject('churn')">
+                    🤖 Customer Churn Prediction
+                </h3>
+
+            </div>
+
+            <div class="project data">
+
+                <h3 onclick="showProject('sales')">
+                    🛒 Sales Data Analysis
+                </h3>
+
+            </div>
+
+            <div class="project dev">
+
+                <h3 onclick="showProject('clinic')">
+                    👁 Eye Clinic Appointment System
+                </h3>
+
+            </div>
+
+            <div class="project dev">
+
+                <h3 onclick="showProject('rentmate')">
+                    🏠 RentMate Smart Rental System
+                </h3>
+
+            </div>
+
+            <div class="project dev">
+
+                <h3 onclick="showProject('library')">
+                    📚 Library Management System
+                </h3>
+
+            </div>
+
+            <div class="project pm">
+
+                <h3 onclick="showProject('agile')">
+                    📝 Agile Project Management
+                </h3>
+
+            </div>
+
+            <div class="project pm">
+
+                <h3 onclick="showProject('analytics')">
+                    📊 Data Analytics Project Coordination
+                </h3>
+
+            </div>
+
+            <div class="project pm">
+
+                <h3 onclick="showProject('team')">
+                    🤝 Cross-functional Team Leadership
+                </h3>
+
+            </div>
         </div>
 
-        <div class="project data">
-            <h3>📈 Financial Performance Dashboard</h3>
-            <p>
-                Built a Power BI dashboard analyzing revenue,
-                expenses and profitability trends.
-                Created KPI metrics for financial monitoring.
+        <!-- RIGHT SIDE PROJECT DETAILS -->
+
+        <div class="project-details">
+
+            <img id="project-image"
+                 src="images/default.png"
+                 alt="Project Image">
+
+            <h2 id="project-title">
+                Select a Project
+            </h2>
+
+            <p id="project-description">
+                Click any project title to view details.
             </p>
-        </div>
 
-        <div class="project data">
-            <h3>🤖 Customer Churn Prediction</h3>
-            <p>
-                Machine learning model predicting telecom
-                customer churn using Python and Scikit-learn.
-            </p>
-        </div>
+            <h3>
+                Tools & Technologies
+            </h3>
 
-        <div class="project data">
-            <h3>🛒 Sales Data Analysis</h3>
-            <p>
-                SQL queries and visualizations analyzing
-                sales performance and customer behavior.
-            </p>
+            <div id="project-tools"></div>
         </div>
-
-        <div class="project data">
-            <h3>📣 Marketing Campaign Analysis</h3>
-            <p>
-                A/B testing and statistical analysis of
-                marketing campaign effectiveness.
-            </p>
-        </div>
-
-        <div class="project dev">
-            <h3>👁 Eye Clinic Appointment System</h3>
-            <p>
-                Developed a software system allowing patients
-                to book appointments and clinics to manage operations.
-            </p>
-        </div>
-
-        <div class="project dev">
-            <h3>🏠 RentMate Smart Rental System</h3>
-            <p>
-                Mobile application managing boarding houses
-                and rental properties.
-            </p>
-        </div>
-
-        <div class="project dev">
-            <h3>📚 Library Management System</h3>
-            <p>
-                Web-based system for managing library operations, including
-                book inventory, member management, and borrowing processes.
-            </p>
-        </div>
-
-        <div class="project pm">
-            <h3>📝 Agile Project Management</h3>
-            <p>
-                Managed software development projects using
-                Agile methodologies and Jira for task tracking.
-            </p>
-        </div>
-
-        <div class="project pm">
-            <h3>📊 Data Analytics Project Coordination</h3>
-            <p>
-                Coordinated data analytics projects, ensuring
-                timely delivery of insights and visualizations.
-            </p>
-        </div>
-
-        <div class="project pm">
-            <h3>🤝 Cross-functional Team Leadership</h3>
-            <p>
-                Led cross-functional teams in delivering
-                software and analytics solutions.
-            </p>
-        </div>
-
-    </section>
+    </div>
+</section>
 
     <section class="skills">
         <h2>Skills</h2>

@@ -161,6 +161,95 @@ section {
     color: #000;
 }
 
+.project-layout {
+
+    display: flex;
+
+    gap: 50px;
+
+    margin-top: 40px;
+
+}
+
+
+.project-menu {
+
+    width: 35%;
+
+}
+
+
+
+.project-details {
+
+    width: 65%;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+}
+
+
+
+.project-details img {
+
+    width: 100%;
+
+    max-width: 600px;
+
+    height: auto;
+
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.project h3 {
+
+    cursor: pointer;
+
+    padding: 15px;
+
+    transition: 0.3s;
+
+}
+
+
+
+.project h3:hover {
+
+    color: #00ff99;
+
+}
+
+
+
+#project-tools {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+}
+
+
+
+#project-tools span {
+
+    padding: 8px 15px;
+
+    background: #222;
+
+    border-radius: 20px;
+
+}
+
 .about {
     text-align: justify;
 }
