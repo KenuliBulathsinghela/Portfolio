@@ -162,7 +162,7 @@ section {
     padding: 10px;
     background: #1a1a27;
     border-radius: 8px;
-     cursor: pointer;
+    cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -303,10 +303,6 @@ section {
     text-align: justify;
 }
 
-.skills h2 {
-    text-align: center;
-}
-
 .skills-table {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -342,7 +338,7 @@ section {
 }
 
 .contact {
-    margin-top: 80px;
+    margin-top: -100px;
     padding: 40px;
     background: #11111a;
     border-radius: 10px;
@@ -479,6 +475,183 @@ html {
 
     .contact button {
         width: 100%;
+    }
+
+}
+
+/* =========================================
+   EDUCATION SECTION
+========================================= */
+
+.education-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 50px 5%;
+    overflow: hidden;
+    font-family: monospace;
+}
+
+.education-container {
+    width: 100%;
+    max-width: 1200px;
+    font-family: monospace;
+    margin: auto;
+}
+
+.education-map {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    margin: auto;
+}
+
+.education-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.education-line {
+    fill: none;
+    stroke: #00ff9f;
+    stroke-width: 1;
+    transition: stroke 0.8s ease, filter 0.8s ease;
+}
+
+.education-line.active {
+    stroke: #00cc7a;
+
+    filter:
+        drop-shadow(0 0 4px #00cc7a)
+        drop-shadow(0 0 7px #00cc7a);
+}
+
+.education-box {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 350px;
+    min-height: 100px;
+    padding: 10px;
+    background: #15151D;
+    border-radius: 20px;
+    color: #ffffff;
+    z-index: 1;
+
+    box-shadow:
+        0 0 0 rgba(0, 204, 122, 0);
+
+    transition:
+        transform 0.8s ease,
+        box-shadow 0.8s ease,
+        border-color 0.8s ease;
+}
+
+
+/* =========================================
+   BOX TEXT
+========================================= */
+
+.education-box h3 {
+    margin: 0;
+    color: #00ff9f;
+    font-weight: 700;
+    font-family: monospace;
+    line-height: 1.45;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.education-box h4 {
+    padding: 5px;
+    margin: 0;
+    color: #ffffff;
+    font-weight: 500;
+    font-family: monospace;
+    line-height: 1.45;
+}
+
+/* =========================================
+   BOX POSITIONS
+========================================= */
+
+.box-certificate {
+    top: 25px;
+    left: 0;
+}
+
+.box-diploma {
+    top: 130px;
+    right: 0;
+}
+
+.box-hnd {
+    top: 255px;
+    left: 0;
+}
+
+.box-bsc {
+    top: 380px;
+    right: 0;
+}
+
+/* =========================================
+   ACTIVE BOX
+========================================= */
+
+.education-box.active {
+    border-color: #00cc7a;
+    box-shadow:
+        0 0 8px rgba(0, 204, 122, 0.7),
+        0 0 20px rgba(0, 204, 122, 0.5),
+        0 0 40px rgba(0, 204, 122, 0.25);
+    transform: scale(1.00);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .education-section {
+        padding: 80px 20px;
+    }
+
+    .education-title {
+        font-size: 32px;
+
+        margin-bottom: 50px;
+    }
+
+    .education-map {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .education-lines {
+        display: none;
+    }
+
+    .education-box {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        width: min(100%, 340px);
+        min-height: 120px;
     }
 
 }

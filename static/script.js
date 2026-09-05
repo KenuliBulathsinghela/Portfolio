@@ -377,3 +377,201 @@ function filterProjects(category) {
     });
 
 }
+
+/* ========================================= 
+   EDUCATION SCROLL ANIMATION 
+========================================= */ 
+ 
+document.addEventListener("DOMContentLoaded", () => { 
+ 
+    const lines = [ 
+        document.getElementById("line1"), 
+        document.getElementById("line2"), 
+        document.getElementById("line3") 
+    ]; 
+ 
+    const boxes = [ 
+        document.getElementById("box1"), 
+        document.getElementById("box2"), 
+        document.getElementById("box3"), 
+        document.getElementById("box4") 
+    ]; 
+
+    const educationScrollStart = 0.85;
+    const educationScrollEnd = 0.15;
+    const educationSmoothing = 0.08;
+    const boxGlowDelay = 350;
+    let targetProgress = 0;
+    let renderedProgress = 0;
+    let animationFrame = null;
+    let activeBoxIndex = -1;
+    let boxGlowTimer = null;
+ 
+ 
+    /* =========================================
+       PREPARE SVG LINES
+    ========================================= */ 
+ 
+    lines.forEach(line => { 
+ 
+        const length = line.getTotalLength(); 
+ 
+        line.style.strokeDasharray = length; 
+        line.style.strokeDashoffset = length; 
+ 
+        line.dataset.length = length; 
+ 
+    }); 
+ 
+ 
+    /* =========================================
+       UPDATE ANIMATION
+    ========================================= */ 
+ 
+    function renderEducationAnimation(progress) {
+ 
+        const section = document.querySelector(".education-section"); 
+ 
+        const rect = section.getBoundingClientRect(); 
+ 
+        const windowHeight = window.innerHeight; 
+ 
+ 
+        const startPoint = windowHeight * educationScrollStart;
+        const endPoint = windowHeight * educationScrollEnd;
+ 
+        progress = 
+            (startPoint - rect.top) / 
+            (startPoint - endPoint); 
+ 
+ 
+        progress = Math.max( 
+            0, 
+            Math.min(1, progress) 
+        ); 
+ 
+ 
+        /* =========================================
+           DIVIDE INTO 3 ANIMATION STAGES
+        ========================================= */ 
+ 
+        const stageSize = 1 / 3; 
+ 
+ 
+        lines.forEach((line, index) => { 
+ 
+            const start = index * stageSize; 
+            const end = (index + 1) * stageSize; 
+ 
+            let lineProgress = 
+                (progress - start) / 
+                (end - start); 
+ 
+            lineProgress = Math.max( 
+                0, 
+                Math.min(1, lineProgress) 
+            ); 
+ 
+            const length = 
+                Number(line.dataset.length); 
+ 
+ 
+            /*
+             * Grey → Neon Green
+             */
+ 
+            line.style.strokeDashoffset = 
+                length * (1 - lineProgress); 
+ 
+ 
+            /*
+             * Add glow when animation starts
+             */
+ 
+            if (lineProgress > 0) { 
+ 
+                line.classList.add("active"); 
+ 
+            } else { 
+ 
+                line.classList.remove("active"); 
+ 
+            } 
+ 
+        }); 
+ 
+ 
+        /* =========================================
+           BOX ACTIVE STATES
+        ========================================= */ 
+ 
+        const nextBoxIndex = progress < 0.10
+            ? 0
+            : progress < 0.40
+                ? 1
+                : progress < 0.75
+                    ? 2
+                    : 3;
+
+        if (nextBoxIndex !== activeBoxIndex) {
+            activeBoxIndex = nextBoxIndex;
+            boxes.forEach(box => box.classList.remove("active"));
+            clearTimeout(boxGlowTimer);
+            boxGlowTimer = setTimeout(() => {
+                boxes[activeBoxIndex].classList.add("active");
+            }, boxGlowDelay);
+        }
+ 
+    }
+
+    function animateEducation() {
+        renderedProgress +=
+            (targetProgress - renderedProgress) * educationSmoothing;
+
+        renderEducationAnimation(renderedProgress);
+
+        if (Math.abs(targetProgress - renderedProgress) > 0.001) {
+            animationFrame = requestAnimationFrame(animateEducation);
+        } else {
+            renderedProgress = targetProgress;
+            renderEducationAnimation(renderedProgress);
+            animationFrame = null;
+        }
+    }
+
+    function updateEducationAnimation() {
+        const section = document.querySelector(".education-section");
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const startPoint = windowHeight * educationScrollStart;
+        const endPoint = windowHeight * educationScrollEnd;
+
+        targetProgress = Math.max(
+            0,
+            Math.min(1, (startPoint - rect.top) / (startPoint - endPoint))
+        );
+
+        if (animationFrame === null) {
+            animationFrame = requestAnimationFrame(animateEducation);
+        }
+    }
+ 
+ 
+    /* =========================================
+       SCROLL EVENT
+    ========================================= */ 
+ 
+    window.addEventListener( 
+        "scroll", 
+        updateEducationAnimation, 
+        { passive: true } 
+    ); 
+ 
+ 
+    /* =========================================
+       INITIAL LOAD
+    ========================================= */ 
+ 
+    updateEducationAnimation(); 
+ 
+});
