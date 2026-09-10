@@ -33,12 +33,12 @@
                 <h1 id="typed-text">Kenuli Bulathsinghela</h1>
 
                 <h3>
-                    Project Management • Business Analytics • Software Development
+                    Project Management • Business Analytics • Data Analysis
                 </h3>
 
                 <p>
-                    Information Systems undergraduate at NIBM and Business Analyst Intern at Sri Lanka Telecom (SLT), 
-                    with interests in business analytics, project management, and intelligent software systems.
+                    Information Systems undergraduate at NIBM and Business Analyst Intern at Sri Lanka Telecom (SLT),
+                    with interests in business analytics, project management, and data analysis.
 
                 </p>
 
@@ -117,16 +117,18 @@
         <h2>About</h2>
 
         <p class="about">
-            I am an undergraduate Information Systems student at the National Institute of Business Management (NIBM) and currently 
-            working as a Business Analyst Intern at Sri Lanka Telecom (SLT), with strong interests in data analytics, software development,
-            and project management. I enjoy working with data to identify patterns, build dashboards, and develop predictive models that 
-            support informed decision-making using tools such as Python, SQL, and Power BI. At the same time, I enjoy building practical 
-            software solutions that solve real-world problems, including web and application systems such as booking platforms and 
-            management systems. Alongside technical development, I am interested in Agile project management, where I contribute to 
-            project planning, task organization, sprint workflows, and team coordination using tools like Jira. By combining analytical 
-            thinking, development skills, business analysis, and structured project coordination, I aim to contribute to building 
-            efficient, data-driven technology solutions.
-
+            I’m an Information Technology for Business undergraduate at NIBM and a Business Analyst Intern at Sri Lanka Telecom (SLT),
+            working at the intersection of business, data, and technology.
+            I’m interested in understanding business problems, analyzing data, improving processes, and turning ideas into practical
+            technology solutions. My experience spans Business Analysis, Data Analytics, Project Management, and Software Development,
+            giving me a broad understanding of how technology can support real business needs.
+            I have hands-on experience working with SQL, Power BI, Excel, Python, Tableau, Jira, and Confluence, along with experience
+            in requirements analysis, BRDs, process analysis, Agile practices, stakeholder communication, and project coordination.
+            Through academic and personal projects, I’ve worked on areas such as business intelligence dashboards, machine learning,
+            data analysis, recommendation systems, software applications, and Agile project management. At SLT, I have also gained
+            practical exposure to business analysis and project coordination within an enterprise environment.
+            I’m particularly interested in opportunities where I can analyze problems, work with data, collaborate with teams, and
+            help deliver technology-driven business solutions.
         </p>
     </section>
 
@@ -247,67 +249,79 @@
 
     <h2>Selected Work</h2>
 
+    <!-- FILTER BUTTONS -->
+    <div class="project-filters">
+
+        <button onclick="filterProjects('data')">
+            📊 Data Analyst
+        </button>
+
+        <button onclick="filterProjects('pm')">
+            🗂 Project Manager & Business Analyst
+        </button>
+
+        <button onclick="filterProjects('dev')">
+            💻 Developer
+        </button>
+
+    </div>
+
+
+    <!-- PROJECT CONTENT -->
     <div class="project-layout">
 
         <!-- LEFT SIDE -->
-
         <div class="project-menu">
-            <div class="project-filters">
 
-                <button onclick="filterProjects('data')">
-                    📊 Data Analyst
-                </button>
-
-                <button onclick="filterProjects('pm')">
-                    🗂 Project Manager
-                </button>
-
-                <button onclick="filterProjects('dev')">
-                    💻 Developer
-                </button>
-
-            </div>
-
-            <div class="project data" onclick="showProject('financial')">
+            <div class="project data"
+                 onclick="showProject('financial')">
                 <h3>📈 Financial Performance Dashboard</h3>
             </div>
 
-            <div class="project data" onclick="showProject('churn')">
+            <div class="project data"
+                 onclick="showProject('churn')">
                 <h3>🤖 Customer Churn Prediction</h3>
             </div>
 
-            <div class="project data" onclick="showProject('sales')">
+            <div class="project data"
+                 onclick="showProject('sales')">
                 <h3>🛒 Sales Data Analysis</h3>
             </div>
 
-            <div class="project dev" onclick="showProject('clinic')">
+            <div class="project dev"
+                 onclick="showProject('clinic')">
                 <h3>👁 Eye Clinic Appointment System</h3>
             </div>
 
-            <div class="project dev" onclick="showProject('rentmate')">
+            <div class="project dev"
+                 onclick="showProject('rentmate')">
                 <h3>🏠 RentMate Smart Rental System</h3>
             </div>
 
-            <div class="project dev" onclick="showProject('game')">
+            <div class="project dev"
+                 onclick="showProject('game')">
                 <h3>🎮 Game Recommender System</h3>
             </div>
 
-            <div class="project pm" onclick="showProject('agile')">
+            <div class="project pm"
+                 onclick="showProject('agile')">
                 <h3>📝 Agile Project Management</h3>
             </div>
 
-            <div class="project pm" onclick="showProject('team')">
+            <div class="project pm"
+                 onclick="showProject('team')">
                 <h3>🤝 Cross-functional Team Leadership</h3>
             </div>
 
-            <div class="project pm" onclick="showProject('document')">
+            <div class="project pm"
+                 onclick="showProject('document')">
                 <h3>📚 Technical Documentation</h3>
             </div>
 
         </div>
 
-        <!-- RIGHT SIDE PROJECT DETAILS -->
 
+        <!-- RIGHT SIDE -->
         <div class="project-details">
 
             <div id="project-images">
@@ -320,24 +334,45 @@
                 Select a Project
             </h2>
 
+            <h3 id="project-subtitle">
+                Project Subtitle
+            </h3>
+
             <p id="project-description">
                 Click any project title to view details.
             </p>
 
-            <h3>
-                Tools & Technologies
-            </h3>
+            <div id="project-analysis">
+
+                <h3 id="project-analysis-title">
+                    Key Analysis
+                </h3>
+
+                <ul id="project-analysis-list"></ul>
+
+            </div>
+
+            <h3>Tools & Technologies</h3>
 
             <div id="project-tools"></div>
 
+            <h3>Project Evidence</h3>
+
+            <p id="project-evidence">
+                Click any project below to view the project evidence.
+            </p>
+
             <a id="project-github"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer">
-                View the Repo →
+               href="#"
+               target="_blank"
+               rel="noopener noreferrer">
+                View the Repository →
             </a>
+
         </div>
+
     </div>
+
 </section>
 
     
@@ -402,8 +437,9 @@
 
             <div class="education-box box-bsc" id="box4">
                 <div class="education-content">
-                    <h3>BSc Hons in Information Technology for Business (Third Year)</h3>
+                    <h3>BSc (Hons) in Information Technology for Business (Third Year)</h3>
                     <h4>National Institute of Business Management (NIBM)</h4>
+                    <h4>Coventry University, UK</h4>
                     <h4>2026 - 2027</h4>
                 </div>
             </div>
