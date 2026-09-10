@@ -51,6 +51,22 @@ body {
     color: #00ff88;
 }
 
+.nav-toggle {
+    display: none;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* ---------------- HERO ---------------- */
 
 .hero-container {
@@ -160,6 +176,7 @@ section {
     margin-bottom: 10px;
     border-left: 2px solid #00ff9f;
     padding: 4px;
+    box-sizing: border-box;
     background: #1a1a27;
     border-radius: 8px;
     cursor: pointer;
@@ -183,6 +200,7 @@ section {
 .project-filters {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -196,8 +214,9 @@ section {
     border-radius: 6px;
     cursor: pointer;
 
-    width: 280px;
-    height: 60px;
+    width: min(280px, 100%);
+    min-height: 60px;
+    height: auto;
 
     display: flex;
     align-items: center;
@@ -208,7 +227,7 @@ section {
 
     box-sizing: border-box;
     text-align: center;
-    white-space: nowrap;
+    line-height: 1.35;
 }
 
 .project-filters button:hover {
@@ -223,42 +242,37 @@ section {
 }
 
 .project-menu {
-    width: 350px;
+    width: 35%;
     text-align: center;
     color: #00ff9f;
 }
 
 #project-images {
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
     width: 100%;
-    height: 350px;
+    min-height: 240px;
+    height: auto;
     justify-content: center;
     align-items: center;
 }
 
 #project-images img {
     max-width: 100%;
-    max-height: 300px;
+    max-width: 100%;
+    max-height: 320px;
     width: auto;
     height: auto;
     object-fit: contain;
     border-radius: 12px;
-    transform: translateY(-15px);
-
-}
-
-/* When there are two images */
-#project-images:has(img:nth-child(2)) img {
-    width: 48%;
-    height: 350px;
-    object-fit: contain;
 }
 
 .project-details {
     width: 65%;
     border-radius: 15px;
     min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .project-details h2{
@@ -274,6 +288,10 @@ section {
     height: auto;
     border-radius: 15px;
     margin-bottom: 20px;
+}
+
+#project-analysis-list {
+    padding-left: 20px;
 }
 
 .project h3 {
@@ -352,7 +370,7 @@ section {
 }
 
 .contact {
-    margin-top: -100px;
+    margin-top: -10px;
     padding: 40px;
     background: #11111a;
     border-radius: 10px;
@@ -435,6 +453,57 @@ html {
 
 @media (max-width: 900px) {
 
+    .terminal-header {
+        padding: 16px 24px;
+    }
+
+    .terminal-header > p {
+        max-width: 55%;
+        line-height: 1.4;
+    }
+
+    .nav-container {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    #projects .project-filters {
+        gap: 12px;
+        margin: 30px auto 35px;
+    }
+
+    #projects .project-filters button {
+        flex: 1 1 210px;
+        max-width: none;
+    }
+
+    #projects .project-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    #projects .project-menu,
+    #projects .project-details {
+        width: 100%;
+    }
+
+    #projects .project-menu {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    #projects .project {
+        margin: 0;
+    }
+
+    #projects .project h3 {
+        font-size: 0.95rem;
+        line-height: 1.4;
+        margin: 0;
+    }
+
     .skills-table {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -448,6 +517,71 @@ html {
 }
 
 /* ---------------- MOBILE ---------------- */
+
+@media (max-width: 900px) {
+
+    body {
+        padding-top: 90px;
+    }
+
+    .terminal-header {
+        align-items: flex-start;
+        padding: 14px 18px;
+    }
+
+    .terminal-header > p {
+        max-width: calc(100% - 58px);
+        font-size: 12px;
+    }
+
+    .navbar {
+        margin-left: 12px;
+    }
+
+    .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        border: 1px solid #00ff9f;
+        border-radius: 4px;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .nav-toggle span:not(.sr-only) {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: #00ff9f;
+    }
+
+    .nav-container {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 18px;
+        left: 18px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px;
+        background: rgba(10, 10, 10, 0.98);
+        border: 1px solid #00ff9f;
+        border-radius: 4px;
+    }
+
+    .nav-container.is-open {
+        display: flex;
+    }
+
+    .nav-container a {
+        padding: 12px 10px;
+    }
+}
 
 @media (max-width: 600px) {
 
@@ -487,6 +621,61 @@ html {
         gap: 10px;
     }
 
+    #projects .project-filters button {
+        flex-basis: 100%;
+        min-height: 50px;
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+
+    #projects .project-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #projects .project {
+        padding: 6px 8px;
+    }
+
+    #projects .project h3 {
+        font-size: 0.9rem;
+        text-align: left;
+    }
+
+    #projects .project-details h2 {
+        font-size: 1.45rem;
+        line-height: 1.25;
+    }
+
+    #projects .project-details h3 {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    #projects .project-details p,
+    #projects .project-details li {
+        font-size: 0.9rem;
+        line-height: 1.65;
+    }
+
+    #project-images {
+        display: grid;
+        grid-template-columns: 1fr;
+        min-height: 0;
+        gap: 12px;
+        padding: 4px 0 10px;
+    }
+
+    #project-images img,
+    #project-images:has(img:nth-child(2)) img {
+        width: 100%;
+        max-width: 100%;
+        max-height: 280px;
+        height: auto;
+        justify-self: center;
+    }
+
     .contact button {
         width: 100%;
     }
@@ -500,6 +689,7 @@ html {
 .education-section {
     position: relative;
     width: 100%;
+    box-sizing: border-box;
     min-height: 100vh;
     padding: 50px 5%;
     overflow: hidden;

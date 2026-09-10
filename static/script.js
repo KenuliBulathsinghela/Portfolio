@@ -749,3 +749,25 @@ document.addEventListener("DOMContentLoaded", () => {
     updateEducationAnimation(); 
  
 });
+
+
+// ===============================
+// Responsive Navigation
+// ===============================
+
+const navToggle = document.querySelector(".nav-toggle");
+const navContainer = document.querySelector(".nav-container");
+
+if (navToggle && navContainer) {
+    navToggle.addEventListener("click", function () {
+        const isOpen = navContainer.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navContainer.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            navContainer.classList.remove("is-open");
+            navToggle.setAttribute("aria-expanded", "false");
+        });
+    });
+}
